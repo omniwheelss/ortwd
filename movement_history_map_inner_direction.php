@@ -95,7 +95,7 @@
 																	$Title = "Trip Starts";
 															else if($Row == $device_count2)	
 																	$Title = "Trip End";
-															$LanLong_Array[] = array($latitude,$longitude, $location, $Title);
+															$LatLong_Array[] = array($latitude,$longitude, $location, $Title);
 														}
 									
 												?>
@@ -132,20 +132,20 @@
 						
 					<?php
 						if(count($device_list1) > 0){
-							$randomLatLong_key =array_rand($LanLong_Array,1);
+							$randomLatLong_key =array_rand($LatLong_Array,1);
 						}	
 					?>
 						<script type="text/javascript">
 							var markers = [
 								<?php
-									foreach($LanLong_Array as $LanLong_Val){
+									foreach($LatLong_Array as $LatLong_Val){
 								?>
 								{
-									"title": '<?=$LanLong_Val[3]?>',
-									"lat": '<?=$LanLong_Val[0]?>',
-									"lng": '<?=$LanLong_Val[1]?>',
+									"title": '<?=$LatLong_Val[3]?>',
+									"lat": '<?=$LatLong_Val[0]?>',
+									"lng": '<?=$LatLong_Val[1]?>',
 									"icon": './img/map_icons/bus3.png',
-									"description": '<b><?=$LanLong_Val[3]?></b><br /><?=$LanLong_Val[2]?>'
+									"description": '<b><?=$LatLong_Val[3]?></b><br /><?=$LatLong_Val[2]?>'
 								},
 								<?php
 									}
@@ -206,7 +206,7 @@
 										service.route({
 											origin: src,
 											destination: des,
-											travelMode: google.maps.DirectionsTravelMode.DRIVING
+											travelMode: google.maps.DirectionsTravelMode.TRANSIT
 										}, function (result, status) {
 											if (status == google.maps.DirectionsStatus.OK) {
 												for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
