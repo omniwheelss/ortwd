@@ -81,6 +81,7 @@
                                                 <th>SNo</th>
                                                 <th>Date & Time</th>
                                                 <th>Vehicle</th>
+                                                <th>Latitude & Longitude</th>
                                                 <th>Location</th>
                                                 <th>Status</th>
                                                 <th>Ignition Status</th>
@@ -147,7 +148,8 @@
 												<td><?=$i?></td>
 												<td><?=date("d-M-Y g:ia",strtotime($device_date_stamp))?></td>
 												<td><?=$Device_Info_Array[$IMEI]['vehicle_no']?></td>
-												<td width="50%"><?=$Vehicle_Summary_Array['location']?></td>
+												<td><?=$Vehicle_Summary_Array['latitude']. " - ". $Vehicle_Summary_Array['longitude']?></td>
+												<td width="40%"><?=$Vehicle_Summary_Array['location']?></td>
 												<td><?=$Status_Icon?><?=$Vehicle_Summary_Array['status']?></td>
 												<td align="center"><?=$Vehicle_Summary_Array['ign']?></td>
 												<td><?=$Speed?></td>
