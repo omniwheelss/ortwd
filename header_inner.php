@@ -37,12 +37,11 @@
 		</script>
     </head>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=en"></script>
-	<script src="./js/jscript.js"></script>
 
     </head>
     <!--<body class="skin-blue" onLoad="load()" onUnload="GUnload()">-->
 	<?php
-		if (basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map.php'){
+		if ((basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map.php') || (basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map_v2.php')){
 	?>		
 		<body class="skin-blue" onLoad="initialize()" onUnload="GUnload()">
 	<?php
