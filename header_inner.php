@@ -383,6 +383,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="vehicle_summary.php"><i class="fa fa-th-list"></i> Vehicle Summary</a></li>
+								<li><a href="vehicle_summary_v1.php"><i class="fa fa-th-list"></i> Vehicle Summary V1</a></li>
 								<?php
 								if($User_Account_ID != 4){
 								?>
