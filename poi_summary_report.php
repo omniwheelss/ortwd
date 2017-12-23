@@ -99,7 +99,7 @@
 										$Geofence_List = Geofence_List($IMEI, $From_Date, $To_Date);
 									?>	
 								
-									<?php
+									<?php /*
 									if(count($Geofence_List) > 0){
 									?>										
 									<table style="height:20px;">
@@ -110,7 +110,7 @@
 										</tr>
 									</table>
 										<?php
-										}
+										}*/
 										?>										
                                 <div class="box-body table-responsive">
                                     <table id="" class="table table-bordered table-striped">
@@ -141,7 +141,8 @@
 												$Out_Date_Stamp = $Geofence_List_Val['out_date_stamp'];
 												$Out_Trip_Index = $Geofence_List_Val['out_trip_index'];
 												$In_Geofence_Details = Geofence_Details($In_Trip_Index);
-												$Out_Geofence_Details = Geofence_Details($Out_Trip_Index);												
+												$Out_Geofence_Details = Geofence_Details($Out_Trip_Index);
+												
 												if(!empty($Out_Date_Stamp))
 													$Out_Date_Stamp_Final = date("d-M-Y g:ia",strtotime($Out_Date_Stamp));
 												else
@@ -211,7 +212,7 @@
                                         </tfoot>-->
                                     </table>	
 									<br /><br />
-									<?php
+									<?php /*
 									if(count($Geofence_List) > 0){
 									?>										
 									<table style="height:20px;">
@@ -221,7 +222,7 @@
 										</tr>
 									</table>
 										<?php
-										}
+										}*/
 										?>										
 									
 									<?php
