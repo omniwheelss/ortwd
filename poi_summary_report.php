@@ -123,6 +123,7 @@
                                                 <th>Trip End At</th>
                                                 <th>End Date Time</th>
 												<th>Total Travel Time</th>
+												<th>Total KM</th>
 												<th>Plot</th>
 											</tr>
                                         </thead>
@@ -155,10 +156,8 @@
 												//Find a difference between tables
 												$Get_EpochDiff = Get_EpochDiff(strtotime($Out_Date_Stamp), strtotime($In_Date_Stamp));
 												$Total_Pocket_Time = Epoch_To_Time($Get_EpochDiff);
-												if($Out_Geofence_Details['name'] == $In_Geofence_Details['name'])
-													$Wrong_Rec_Cls = 'style="background-color:#FDF6BF"';
-												else	
-													$Wrong_Rec_Cls = '';
+												if($Out_Geofence_Details['name'] != $In_Geofence_Details['name']){
+													//$Wrong_Rec_Cls = 'style="background-color:#FDF6BF"';
 												
 												$Route_Map_Time = date("m/d/Y g:i A", strtotime($Out_Date_Stamp_Final))." - ". date("m/d/Y g:i A", strtotime($In_Date_Stamp_Final));
 											?>
@@ -169,6 +168,7 @@
 												<td <?=$Wrong_Rec_Cls?>><?=$Out_Date_Stamp_Final?></td>
 												<td <?=$Wrong_Rec_Cls?>><?=$In_Geofence_Details['name']?></td>
 												<td <?=$Wrong_Rec_Cls?>><?=$In_Date_Stamp_Final?></td>
+												<td <?=$Wrong_Rec_Cls?>><?=$Total_Pocket_Time?></td>
 												<td <?=$Wrong_Rec_Cls?>><?=$Total_Pocket_Time?></td>
 												<td <?=$Wrong_Rec_Cls?>>
 												<?php
@@ -182,6 +182,7 @@
 												</td>
 											</tr>
 											<?php
+												}
 												$i++;
 											}
 										}
