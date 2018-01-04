@@ -122,6 +122,7 @@
                                                 <th>Start Date Time</th>
                                                 <th>Trip End At</th>
                                                 <th>End Date Time</th>
+                                                <th>Total KM Travelled</th>						
 												<th>Total Travel Time</th>
 												<th>Total KM</th>
 												<th>Plot</th>
@@ -139,8 +140,12 @@
 												
 												$In_Date_Stamp = $Geofence_List_Val['in_date_stamp'];
 												$In_Trip_Index = $Geofence_List_Val['in_trip_index'];
+												$In_Latitude = $Geofence_List_Val['in_latitude'];
+												$In_Longitude = $Geofence_List_Val['in_longitude'];
 												$Out_Date_Stamp = $Geofence_List_Val['out_date_stamp'];
 												$Out_Trip_Index = $Geofence_List_Val['out_trip_index'];
+												$Out_Latitude = $Geofence_List_Val['out_latitude'];
+												$Out_Longitude = $Geofence_List_Val['out_longitude'];
 												$In_Geofence_Details = Geofence_Details($In_Trip_Index);
 												$Out_Geofence_Details = Geofence_Details($Out_Trip_Index);
 												
@@ -159,7 +164,13 @@
 												if($Out_Geofence_Details['name'] != $In_Geofence_Details['name']){
 													//$Wrong_Rec_Cls = 'style="background-color:#FDF6BF"';
 												
+												$Trip_Distance = distance($In_Latitude,$In_Longitude,$Out_Latitude,$Out_Longitude);
+												$Trip_Distance = number_format($Trip_Distance, 2);
+												
 												$Route_Map_Time = date("m/d/Y g:i A", strtotime($Out_Date_Stamp_Final))." - ". date("m/d/Y g:i A", strtotime($In_Date_Stamp_Final));
+												
+												// Dont show unassigned route
+												if($Trip_Distance > 5){
 											?>
 											<tr>
 												<td <?=$Wrong_Rec_Cls?>><?=$i?></td>
@@ -170,6 +181,7 @@
 												<td <?=$Wrong_Rec_Cls?>><?=$In_Date_Stamp_Final?></td>
 												<td <?=$Wrong_Rec_Cls?>><?=$Total_Pocket_Time?></td>
 												<td <?=$Wrong_Rec_Cls?>><?=$Total_Pocket_Time?></td>
+												<td <?=$Wrong_Rec_Cls?>><?=$Trip_Distance?></td>
 												<td <?=$Wrong_Rec_Cls?>>
 												<?php
 												$Records_Exist = 1;
@@ -182,6 +194,7 @@
 												</td>
 											</tr>
 											<?php
+												}
 												}
 												$i++;
 											}
