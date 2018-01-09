@@ -170,7 +170,7 @@
 												$Route_Map_Time = date("m/d/Y g:i A", strtotime($Out_Date_Stamp_Final))." - ". date("m/d/Y g:i A", strtotime($In_Date_Stamp_Final));
 												
 												// Dont show unassigned route
-												if($Trip_Distance > 5){
+												if($Trip_Distance > 5 && $Trip_Distance < 1000 ){
 											?>
 											<tr>
 												<td <?=$Wrong_Rec_Cls?>><?=$i?></td>
