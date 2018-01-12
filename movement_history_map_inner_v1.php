@@ -1,4 +1,27 @@
 <?php	error_reporting(0);?>
+<style>
+.historystart {
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    font-family: Arial;
+
+    color: #FFFFCC;
+
+    background-color: #009933;
+
+    text-align: center;
+
+    width: 30px;
+
+    margin-left: 2px;
+
+	margin-right: 2px;
+
+}
+</style>
 <script src="./js/google_elabel.js" type="text/javascript"></script>
 		<form name="vehicle_report" method="post" action="">
 		<div class="row">
@@ -201,8 +224,9 @@
 									$device_status_final_array = $device_status_val[$j];
 									$Device_Date_Stamp = date("d-M-Y g:ia",strtotime($device_status_final_array['device_date_stamp']));
 									$Device_Cur_Status = $device_status_final_array['status'];
+									round($device_status_final_array['speed']) > 0? $Speed = round($device_status_final_array['speed'])."km" : $Speed = 0;
 									
-									$message[] = "<div><table cellpadding=\"5\" cellspacing=\"5\" border=\"0\"><tr><td align=\"left\" valign=\"top\" colspan=\"2\" style=\"color:red;\"><b>Current Location Info</b></td></tr><tr><td align=\"left\" valign=\"top\" width=\"90px\"><b>Vehicle</b></td><td>".$vehicle_nos[$device_status_final_array['imei']]."</td></tr><tr><td align=\"left\" valign=\"top\" width=\"90px\"><b>Date & Time</b></td><td align=\"left\" valign=\"top\">".$Device_Date_Stamp."</td></tr><tr><td align=\"left\" valign=\"top\"><b>Location</b></td><td align=\"left\" valign=\"top\">".$device_status_final_array['location']."</td></tr></table></div>";
+									$message[] = "<div><table cellpadding=\"5\" cellspacing=\"5\" border=\"0\"><tr><td align=\"left\" valign=\"top\" colspan=\"2\" style=\"color:red;\"><b>Current Location Info</b></td></tr><tr><td align=\"left\" valign=\"top\" width=\"90px\"><b>Vehicle</b></td><td>".$vehicle_nos[$device_status_final_array['imei']]."</td></tr><tr><td align=\"left\" valign=\"top\" width=\"90px\"><b>Date & Time</b></td><td align=\"left\" valign=\"top\">".$Device_Date_Stamp."</td></tr><tr><td align=\"left\" valign=\"top\" width=\"90px\"><b>Status</b></td><td align=\"left\" valign=\"top\">".$Device_Cur_Status."</td></tr><tr><td align=\"left\" valign=\"top\" width=\"90px\"><b>Speed</b></td><td align=\"left\" valign=\"top\">".$Speed."</td></tr><tr><td align=\"left\" valign=\"top\"><b>Location</b></td><td align=\"left\" valign=\"top\">".$device_status_final_array['location']."</td></tr></table></div>";
 									$latitude = $device_status_final_array['latitude'];
 									$longitude = $device_status_final_array['longitude'];
 									
@@ -220,14 +244,14 @@
 							// Start Icon
 							if($j == 0){
 							?>
-							marker.setIcon('./img/map_icons/grn.gif');
+							marker.setIcon('./img/map_icons/green_start1.gif');
 							
 							<?php
 							}
 							// End Icon
 							else if ($j == ($device_count2-1)){
 							?>
-							marker.setIcon('./img/map_icons/red.gif');
+							marker.setIcon('./img/map_icons/red_end.png');
 							<?php
 							}
 							// Moving Icon
@@ -245,7 +269,7 @@
 							// Idle Icon
 							else if ($Device_Cur_Status == 'Idle'){
 							?>
-							marker.setIcon('./img/map_icons/map_orange.png');
+							marker.setIcon('./img/map_icons/ylw.gif');
 							<?php
 							}
 							else{

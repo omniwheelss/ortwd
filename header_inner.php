@@ -41,7 +41,7 @@
     </head>
     <!--<body class="skin-blue" onLoad="load()" onUnload="GUnload()">-->
 	<?php
-		if ((basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map.php') || (basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map_v2.php')){
+		if ((basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map.php') || (basename($_SERVER['SCRIPT_FILENAME']) == 'movement_history_map_v1.php')){
 	?>		
 		<body class="skin-blue" onLoad="initialize()" onUnload="GUnload()">
 	<?php
