@@ -414,7 +414,10 @@
             </aside>
 
 			<?php
-				$Mysql_Query1 = "select * from device_master where user_account_id = '".$User_Account_ID."'";
+				if($User_Account_ID == 1)
+					$Mysql_Query1 = "select * from device_master";
+				else
+					$Mysql_Query1 = "select * from device_master where user_account_id = '".$User_Account_ID."'";			
 				$Mysql_Query_Result1 = mysql_query($Mysql_Query1) or die(mysql_error());
 				$device_count1 = mysql_num_rows($Mysql_Query_Result1);
 				if($device_count1>=1){
